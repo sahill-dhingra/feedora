@@ -7,6 +7,8 @@ import OptionSelector from "../components/OptionSelector";
 function ReviewPage() {
     const { businessId } = useParams();
 
+
+
     const [business, setBusiness] = useState(null);
     const [categoryOptions, setCategoryOptions] = useState(null);
     const [rating, setRating] = useState(0);
@@ -236,23 +238,126 @@ function ReviewPage() {
         }
     }
 
-    if (loading) {
-        return (
-            <div className="flex min-h-screen items-center justify-center bg-[#F9F8F6]">
-                <p className="text-sm text-[#756E69]">Loading...</p>
-            </div>
-        );
-    }
+    const LOGO = "/feedora.png";
+    const BACKGROUND = "/bg.png";
 
-    if (error) {
-        return (
-            <div className="flex min-h-screen items-center justify-center bg-[#F9F8F6] p-6">
-                <p className="text-center text-[#756E69]">
-                    {error}
+if (loading) {
+    return (
+        <div
+            className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#F9F8F6]"
+            style={{
+                backgroundImage: `url(${BACKGROUND})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+            }}
+        >
+            {/* Soft background glow */}
+            <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/60 blur-3xl" />
+
+            {/* Loading content */}
+            <div className="relative z-10 flex flex-col items-center text-center">
+                {/* Logo */}
+                <img
+                    src={LOGO}
+                    alt="Feedora"
+                    className="h-9 w-auto sm:h-10"
+                />
+
+                {/* Loader */}
+                <div className="mt-10">
+                    <div className="relative h-8 w-8">
+                        <div className="absolute inset-0 rounded-full border-2 border-[#E7E4DF]" />
+
+                        <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-[#004AAD]" />
+                    </div>
+                </div>
+
+                {/* Text */}
+                <p className="mt-5 text-sm font-medium tracking-[-0.01em] text-[#454545]">
+                    Loading your experience
+                </p>
+
+                <p className="mt-1.5 text-xs text-[#756E69]">
+                    Just a moment...
                 </p>
             </div>
-        );
-    }
+        </div>
+    );
+}
+
+if (error) {
+    return (
+        <div
+            className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#F9F8F6] p-6"
+            style={{
+                backgroundImage: `url(${BACKGROUND})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+            }}
+        >
+            {/* Soft background glow */}
+            <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/60 blur-3xl" />
+
+            {/* Error content */}
+            <div className="relative z-10 flex w-full max-w-sm flex-col items-center text-center">
+                {/* Logo */}
+                <img
+                    src={LOGO}
+                    alt="Feedora"
+                    className="h-9 w-auto sm:h-10"
+                />
+
+                {/* Error icon */}
+                <div className="mt-10 flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF1F0]">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        className="h-6 w-6 text-[#D64545]"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M12 8v4"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                        />
+                        <path
+                            d="M12 16h.01"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                        />
+                        <path
+                            d="M10.3 3.9 2.8 17a2 2 0 0 0 1.73 3h14.94a2 2 0 0 0 1.73-3L13.7 3.9a2 2 0 0 0-3.4 0Z"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinejoin="round"
+                        />
+                    </svg>
+                </div>
+
+                {/* Heading */}
+                <h2 className="mt-6 text-base font-semibold tracking-[-0.01em] text-[#303030]">
+                    Something went wrong
+                </h2>
+
+                {/* Error message */}
+                <p className="mt-2 max-w-xs text-sm leading-6 text-[#756E69]">
+                    {error}
+                </p>
+
+
+                {/* Supporting text */}
+                <p className="mt-4 text-xs text-[#918A85]">
+                    If the problem continues, please try again later.
+                </p>
+            </div>
+        </div>
+    );
+}
+
 
     return (
         // <main className="h-dvh  bg-[#F9F8F6] px-2 sm:px-4 ">

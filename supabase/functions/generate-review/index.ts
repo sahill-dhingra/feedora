@@ -39,25 +39,45 @@ Deno.serve(async (req: Request) => {
         }
 
         const prompt = `
-Generate a natural customer review based ONLY on the information provided below.
+Write a short, natural Google review based ONLY on the customer's information provided below.
 
 Business name: ${businessName}
 Business category: ${category || "business"}
 Rating: ${rating}/5
-Things the customer liked: ${liked?.length ? liked.join(", ") : "None provided"
-            }
-Things the customer felt could be improved: ${issues?.length ? issues.join(", ") : "None provided"
-            }
+Things the customer liked: ${
+    liked?.length ? liked.join(", ") : "None provided"
+}
+Things the customer felt could be improved: ${
+    issues?.length ? issues.join(", ") : "None provided"
+}
 
 Rules:
 - Write in first person, as if the customer is writing the review.
-- Do not invent any facts, people, products, prices, events, services, or experiences.
-- Do not mention information that the customer did not provide.
-- Keep the review natural and concise.
-- Match the tone and sentiment to the rating.
+- Use simple, everyday English that a normal customer would naturally use.
+- Keep the tone casual, genuine, and conversational.
+- Do not sound like a professional writer, marketer, or advertisement.
+- Avoid overly polished or fancy language.
+- Avoid words such as "thrilled", "impressed", "exceptional", "outstanding", "flawless", "seamless", "delighted", "remarkable", and "exceeded my expectations".
+- Prefer simple words such as "good", "nice", "happy", "helpful", "great", "liked", and "overall".
+- Keep the review around 25–50 words.
+- Usually write 2–4 sentences.
+- Do not make the review unnecessarily detailed.
+- Do not try to include every selected point. Only include points that fit naturally together.
+- Do not repeat the same idea in different ways.
+- Match the tone and sentiment to the customer's rating.
+- For a 5-star rating, make the review clearly positive and satisfied.
+- For a 4-star rating, make it positive while naturally mentioning any improvement points provided.
+- For a 3-star rating, keep the review balanced and honest.
+- For a 2-star rating, make the review mostly negative while acknowledging positive points if provided.
+- For a 1-star rating, make the review clearly negative and focus on the problems provided.
+- If the customer did not provide a positive point, do not invent one.
+- If the customer did not provide an improvement point, do not invent one.
+- Do not invent facts, people, products, prices, events, services, or experiences.
+- Do not add details about the business that the customer did not provide.
 - Do not exaggerate the customer's experience.
+- Do not intentionally add spelling mistakes, grammatical errors, slang, or other imperfections to make the review appear human.
 - Do not mention AI or that the review was generated.
-- Do not use quotation marks around the review.
+- Do not use quotation marks.
 - Return ONLY the review text.
 `;
 

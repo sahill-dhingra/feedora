@@ -1,11 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ReviewPage from "./pages/ReviewPage";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
 function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
+				<Route path="/" element={<Home />} />
 				<Route path="/review/:businessId" element={<ReviewPage />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</BrowserRouter>
 	);
