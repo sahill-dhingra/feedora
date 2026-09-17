@@ -9,6 +9,9 @@ import {
     Menu,
     X,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function Home() {
     // =========================================================
@@ -18,6 +21,8 @@ export default function Home() {
     const LOGO = "/feedora.png";
     const PHONE = "/iphone.png";
     const BACKGROUND = "/bg.png";
+    const navigate = useNavigate();
+
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -177,65 +182,67 @@ export default function Home() {
                 {/* =====================================================
     HERO
 ====================================================== */}
-<section className="relative">
-    <div className="mx-auto grid min-h-[calc(100vh-76px)] max-w-7xl items-center gap-6 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-4 lg:px-10 lg:py-6">
-        
-        {/* Hero content */}
-        <div className="relative z-10 max-w-2xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E7E4DF] bg-white/75 px-4 py-2 text-xs font-semibold tracking-wide text-[#004AAD] backdrop-blur-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#004AAD]" />
-                CUSTOMER FEEDBACK, MADE USEFUL
-            </div>
+                <section className="relative">
+                    <div className="mx-auto grid min-h-[calc(100vh-76px)] max-w-7xl items-center gap-6 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-4 lg:px-10 lg:py-6">
 
-            <h1 className="max-w-170 text-[clamp(2.5rem,5vw,4.8rem)] font-bold leading-[0.98] tracking-[-0.045em] text-[#151515]">
-                Turn happy customers into{" "}
-                <span className="text-[#004AAD]">
-                    genuine Google reviews.
-                </span>
-            </h1>
+                        {/* Hero content */}
+                        <div className="relative z-10 max-w-2xl">
+                            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E7E4DF] bg-white/75 px-4 py-2 text-xs font-semibold tracking-wide text-[#004AAD] backdrop-blur-sm">
+                                <span className="h-1.5 w-1.5 rounded-full bg-[#004AAD]" />
+                                CUSTOMER FEEDBACK, MADE USEFUL
+                            </div>
 
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#555555] sm:text-lg sm:leading-8">
-                Make it easier for customers to share their experience.
-                Collect quick feedback, turn it into an editable review,
-                and send them directly to Google.
-            </p>
+                            <h1 className="max-w-170 text-[clamp(2.5rem,5vw,4.8rem)] font-bold leading-[0.98] tracking-[-0.045em] text-[#151515]">
+                                Turn happy customers into{" "}
+                                <span className="text-[#004AAD]">
+                                    genuine Google reviews.
+                                </span>
+                            </h1>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <button
-                    type="button"
-                    onClick={() => scrollToSection("final-cta")}
-                    className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#004AAD] px-7 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#003D8F] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004AAD] focus-visible:ring-offset-2"
-                >
-                    Get Started
+                            <p className="mt-5 max-w-xl text-base leading-7 text-[#555555] sm:text-lg sm:leading-8">
+                                Make it easier for customers to share their experience.
+                                Collect quick feedback, turn it into an editable review,
+                                and send them directly to Google.
+                            </p>
 
-                    <ArrowRight
-                        size={17}
-                        className="transition-transform duration-200 group-hover:translate-x-0.5"
-                    />
-                </button>
+                            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                                <button
+                                    type="button"
+                                    onClick={() => scrollToSection("final-cta")}
+                                    className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#004AAD] px-7 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#003D8F] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004AAD] focus-visible:ring-offset-2"
+                                >
+                                    Get Started
 
-                <button
-                    type="button"
-                    onClick={() => scrollToSection("how-it-works")}
-                    className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#D9D6D1] bg-white/70 px-7 text-sm font-semibold text-[#303030] transition-all duration-200 hover:border-[#004AAD]/40 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004AAD] focus-visible:ring-offset-2"
-                >
-                    See It in Action
-                </button>
-            </div>
-        </div>
+                                    <ArrowRight
+                                        size={17}
+                                        className="transition-transform duration-200 group-hover:translate-x-0.5"
+                                    />
+                                </button>
 
-        {/* Phone */}
-        <div className="relative flex items-center justify-center lg:justify-end">
-            <div className="absolute h-80 w-80 rounded-full bg-white/45 blur-3xl sm:h-96 sm:w-96" />
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        navigate(
+                                            "/review/3892d88c-14f8-4383-8b38-67067dfbc8ac"
+                                        )} className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#D9D6D1] bg-white/70 px-7 text-sm font-semibold text-[#303030] transition-all duration-200 hover:border-[#004AAD]/40 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004AAD] focus-visible:ring-offset-2"
+                                >
+                                    See It in Action
+                                </button>
+                            </div>
+                        </div>
 
-            <img
-                src={PHONE}
-                alt="Feedora review experience displayed on an iPhone"
-                className="relative z-10 w-[min(55vw,300px)] drop-shadow-[0_20px_35px_rgba(0,0,0,0.14)] transition-transform duration-500 hover:-translate-y-2 sm:w-[min(45vw,330px)] lg:w-[min(28vw,350px)]"
-            />
-        </div>
-    </div>
-</section>
+                        {/* Phone */}
+                        <div className="relative flex items-center justify-center lg:justify-end">
+                            <div className="absolute h-80 w-80 rounded-full bg-white/45 blur-3xl sm:h-96 sm:w-96" />
+
+                            <img
+                                src={PHONE}
+                                alt="Feedora review experience displayed on an iPhone"
+                                className="relative z-10 w-[min(55vw,300px)] drop-shadow-[0_20px_35px_rgba(0,0,0,0.14)] transition-transform duration-500 hover:-translate-y-2 sm:w-[min(45vw,330px)] lg:w-[min(28vw,350px)]"
+                            />
+                        </div>
+                    </div>
+                </section>
 
                 {/* =====================================================
             HOW IT WORKS
