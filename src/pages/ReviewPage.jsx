@@ -83,12 +83,29 @@ function ReviewPage() {
                 }
             );
 
-            if (error) {
-                console.error("Edge Function error:", error);
-                console.error("Edge Function error context:", error.context);
+            // if (error) {
+            //     console.error("Edge Function error:", error);
+            //     console.error("Edge Function error context:", error.context);
 
+            //     throw error;
+            // }
+// ---------------------------------------------------------------------------------------temporary error handling--------------------------------
+if (error) {
+    console.error("Edge Function error:", error);
+    console.error("Edge Function error context:", error.context);
+    
+    if (error.context) {
+        try {
+                        const errorBody = await error.context.json();
+                        console.error("Edge Function response body:", errorBody);
+                    } catch (e) {
+                        console.error("Could not read Edge Function response body:", e);
+                    }
+                }
+                
                 throw error;
             }
+            // ---------------------------------------------------------------------------------------temporary error handling--------------------------------
 
             if (!data?.review) {
                 throw new Error("No review was generated.");
