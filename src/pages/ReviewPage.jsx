@@ -634,7 +634,7 @@ function ReviewPage() {
                                     >
                                         {copied
                                             ? "✓ Copied — Opening Google..."
-                                            : "📋 Copy & Continue to Google"}
+                                            : "Copy & Continue to Google"}
                                     </button>
                                 </div>
 
