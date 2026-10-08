@@ -128,6 +128,13 @@ export default function Home() {
                         >
                             How it works
                         </button>
+                        <button
+                            type="button"
+                            onClick={() => navigate("/contact")}
+                            className="text-sm font-medium text-[#454545] transition-colors hover:text-[#004AAD] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004AAD] focus-visible:ring-offset-4"
+                        >
+                            Contact 
+                        </button>
 
                         <button
                             type="button"
@@ -164,6 +171,13 @@ export default function Home() {
                                 className="rounded-xl px-4 py-3 text-left text-sm font-medium text-[#454545] hover:bg-[#E7E4DF]/40"
                             >
                                 How it works
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => navigate("/contact")}
+                                className="rounded-xl px-4 py-3 text-left text-sm font-medium text-[#454545] hover:bg-[#E7E4DF]/40"
+                            >
+                                    Contact
                             </button>
 
                             <button
@@ -431,7 +445,7 @@ export default function Home() {
 
                             <button
                                 type="button"
-                                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                                onClick={() => navigate("/contact")}
                                 className="group mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-7 text-sm font-semibold text-[#004AAD] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#F7F7F7] hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#004AAD]"
                             >
                                 Get Started
@@ -440,6 +454,7 @@ export default function Home() {
                                     className="transition-transform duration-200 group-hover:translate-x-0.5"
                                 />
                             </button>
+
                         </div>
                     </div>
                 </section>

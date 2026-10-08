@@ -239,10 +239,11 @@ if (error) {
             }
 
             // 3. Open Google
-            window.open(
-                business.google_review_url,
-                "_blank"
-            );
+            // window.open(
+            //     business.google_review_url,
+            //     "_blank"
+            // );
+            window.location.href = business.google_review_url;
 
         } catch (error) {
             console.error(
